@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0
+                              http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+    <servers>
+        <server>
+            <id>nextwork-devops-harshit-nextwork-devops</id>
+            <username>aws</username>
+            <password>${env.CODEARTIFACT_AUTH_TOKEN}</password>
+        </server>
+    </servers>
+
+    <profiles>
+        <profile>
+            <id>nextwork-devops-harshit-nextwork-devops</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>nextwork-devops-harshit-nextwork-devops</id>
+                    <url>https://nextwork-devops-harshit-334772093957.d.codeartifact.ap-south-1.amazonaws.com/maven/nextwork-devops/</url>
+                </repository>
+            </repositories>
+        </profile>
+    </profiles>
+
+    <mirrors>
+        <mirror>
+            <id>nextwork-devops-harshit-nextwork-devops</id>
+            <name>nextwork-devops-harshit-nextwork-devops</name>
+            <url>https://nextwork-devops-harshit-334772093957.d.codeartifact.ap-south-1.amazonaws.com/maven/nextwork-devops/</url>
+            <mirrorOf>!central</mirrorOf>
+
+        </mirror>
+    </mirrors>
+
+</settings>
