@@ -1,9 +1,11 @@
 #!/bin/bash
-# Update and install Tomcat + Apache
+# Update package index
 sudo apt-get update -y
+
+# Install Tomcat9 and Apache
 sudo apt-get install -y tomcat9 tomcat9-admin apache2
 
-# Enable required modules for proxying
+# Enable required Apache modules for proxying
 sudo a2enmod proxy
 sudo a2enmod proxy_http
 
@@ -19,7 +21,9 @@ sudo bash -c 'cat << EOF > /etc/apache2/sites-available/tomcat_manager.conf
 </VirtualHost>
 EOF'
 
-# Enable site and restart services
+# Enable the site and restart services
 sudo a2ensite tomcat_manager.conf
 sudo systemctl restart apache2
 sudo systemctl restart tomcat9
+sudo systemctl enable apache2
+sudo systemctl enable tomcat9
